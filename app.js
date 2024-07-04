@@ -19,10 +19,10 @@ async function resizeImages(scale) {
         const resizedBlob = await new Promise(resolve => {
             canvas.toBlob(resolve, 'image/jpeg', 0.9);
         });
-
+        
         zip.file(file.name, resizedBlob);
     }
-
+    
     const zipBlob = await zip.generateAsync({type: 'blob'});
     const downloadButton = document.createElement('button');
     downloadButton.textContent = 'İndir';
